@@ -1,6 +1,8 @@
 import functions
 import FreeSimpleGUI as sg
 
+sg.theme('DarkAmber')
+
 
 label = sg.Text("Type in a to-do")
 
@@ -20,7 +22,7 @@ exit_button = sg.Button("Exit")
 window = sg.Window('My To-Do App', 
                    layout=[[label], 
                            [input_box, add_button], 
-                           [list_box, edit_button],[complete_button],
+                           [list_box, edit_button,complete_button],
                            [exit_button]],
                    font=('Helvetica', 25))
 
@@ -57,12 +59,15 @@ while True:
 
 
         case "Complete":
-            todo_to_complete = values['todos'][0]
-            todos = functions.get_todos()
-            todos.remove(todo_to_complete)
-            functions.write_todos(todos)
-            window['todos'].update(values=todos)
-            window['todo'].update(value='')
+            try:
+                todo_to_complete = values['todos'][0]
+                todos = functions.get_todos()
+                todos.remove(todo_to_complete)
+                functions.write_todos(todos)
+                window['todos'].update(values=todos)
+                window['todo'].update(value='')
+            except IndexError:
+                sg.popup("Please select an item first", font=('Helvetica', 15))
 
 
         case "Exit":
