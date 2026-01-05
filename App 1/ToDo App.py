@@ -8,7 +8,9 @@ label = sg.Text("Type in a to-do")
 
 input_box = sg.InputText(tooltip="Enter todo", key="todo")
 
-add_button = sg.Button("Add")
+add_button = sg.Button(size = 3, image_source = "add.png",
+                       tooltip = "Add Todo", mouseover_colors = "blue",
+                       key = "Add")
 
 list_box = sg.Listbox(values=functions.get_todos(), key='todos', 
                       enable_events=True, size=[45, 10])
@@ -21,7 +23,7 @@ show_button = sg.Button("Show Todos")
 
 exit_button = sg.Button("Exit")
 
-window = sg.Window('My To-Do App', 
+window = sg.Window('My ToDos', 
                    layout=[[label], 
                            [input_box, add_button], 
                            [list_box, edit_button,complete_button],
