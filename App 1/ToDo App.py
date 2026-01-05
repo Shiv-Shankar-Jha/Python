@@ -21,7 +21,7 @@ show_button = sg.Button("Show Todos")
 
 exit_button = sg.Button("Exit")
 
-window = sg.Window('My ToDos', 
+window = sg.Window('My To-Do App', 
                    layout=[[label], 
                            [input_box, add_button], 
                            [list_box, edit_button,complete_button],
