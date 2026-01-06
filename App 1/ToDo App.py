@@ -1,7 +1,7 @@
 import functions
 import FreeSimpleGUI as sg
 
-sg.theme('DarkAmber')
+sg.theme('Black')
 
 
 label = sg.Text("Type in a to-do")
@@ -9,7 +9,7 @@ label = sg.Text("Type in a to-do")
 input_box = sg.InputText(tooltip="Enter todo", key="todo")
 
 add_button = sg.Button(size = 3, image_source = "add.png",
-                       tooltip = "Add Todo", mouseover_colors = "blue",
+                       tooltip = "Add Todo", mouseover_colors="LightBlue",
                        key = "Add")
 
 list_box = sg.Listbox(values=functions.get_todos(), key='todos', 
