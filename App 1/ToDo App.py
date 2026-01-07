@@ -8,7 +8,7 @@ label = sg.Text("Type in a to-do")
 
 input_box = sg.InputText(tooltip="Enter todo", key="todo")
 
-add_button = sg.Button(size = 3, image_source = "add.png",
+add_button = sg.Button(size = 3, image_source = "add.PNG",
                        tooltip = "Add Todo", mouseover_colors="LightBlue",
                        key = "Add")
 
