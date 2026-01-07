@@ -1,16 +1,23 @@
 import functions
 import FreeSimpleGUI as sg
+import time
+import os
 
 sg.theme('Black')
 
+clock = sg.Text(time.strftime("%b %d, %Y %H:%M:%S"), key='clock')
 
 label = sg.Text("Type in a to-do")
 
 input_box = sg.InputText(tooltip="Enter todo", key="todo")
 
-add_button = sg.Button(size = 3, image_source = "add.PNG",
-                       tooltip = "Add Todo", mouseover_colors="LightBlue",
-                       key = "Add")
+img_path = os.path.join(os.path.dirname(__file__), "add.PNG")
+if os.path.exists(img_path):
+    add_button = sg.Button(size=3, image_source=img_path,
+                           tooltip="Add Todo", mouseover_colors="red",
+                           key="Add")
+else:
+    add_button = sg.Button("Add", size=3, tooltip="Add Todo", key="Add")
 
 list_box = sg.Listbox(values=functions.get_todos(), key='todos', 
                       enable_events=True, size=[45, 10])
@@ -19,15 +26,13 @@ edit_button = sg.Button("Edit")
 
 complete_button = sg.Button("Complete")
 
-show_button = sg.Button("Show Todos")
-
 exit_button = sg.Button("Exit")
 
 window = sg.Window('My ToDos', 
-                   layout=[[label], 
+                   layout=[[label],
+                           [clock],
                            [input_box, add_button], 
                            [list_box, edit_button,complete_button],
-                           [show_button],
                            [exit_button]],
                    font=('Helvetica', 25))
 

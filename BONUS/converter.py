@@ -38,4 +38,4 @@ while True:
         sg.popup("Please provide two numbers.", font=("Helvetica", 20))
 
 
-# window.close()
+window.close()
