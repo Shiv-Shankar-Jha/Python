@@ -37,7 +37,8 @@ window = sg.Window('My ToDos',
                    font=('Helvetica', 25))
 
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=200)
+    window['clock'].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
     print(1, event)
     print(2, values)
     print(3, values['todos'])

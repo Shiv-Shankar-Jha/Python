@@ -10,10 +10,18 @@ layout2 = fg.Text("Select Extract Folder")
 input_box2 = fg.InputText(tooltip = "choose a folder to extract to", key = "extractfolder")
 button2 = fg.FolderBrowse("choose", tooltip = "choose a folder to extract to")
 
+extract_button = fg.Button("Extract")
+output_label = fg.Text(key="output", text_color="green")
+
+column1 = fg.Column([[layout1, input_box1, button1]])
+column2 = fg.Column([[layout2, input_box2, button2]])
+column3 = fg.Column([[button1], [button2]])
+
 window = fg.Window("ZIP Extractor",
-                   layout = [[layout1, input_box1, button1],
-                             [layout2, input_box2, button2],
-                             [fg.Button("Extract"), fg.Button("Exit")]])
+                   layout = [[column1],
+                             [column2],
+                             [column3]),
+                             [extract_button, output_label]]
 
 while True:
     event, values = window.read()
