@@ -12,8 +12,14 @@ st.title("Todo App")
 st.subheader("Monetize your tasks.")
 st.write("This will help you organize and prioritize your tasks effectively.")
 
-for todo in todos:
-    st.checkbox(todo)
+for index, todo in enumerate(todos):
+    checkbox = st.checkbox(todo, key=todo)
+    if checkbox:
+        todos.pop(index)
+        functions.write_todos(todos)
+        del st.session_state[todo]
+        st.rerun()
 
 st.text_input(label="Add a new todo:", placeholder="Enter todo here...",
               on_change=add_todo, key='new_todo')
+ 
