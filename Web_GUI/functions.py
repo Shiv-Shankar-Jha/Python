@@ -1,4 +1,4 @@
-Filepath = "C:\Users\nsajh\Desktop\Python\Web GUI\todos.txt"
+Filepath = "C:\\Users\\nsajh\\Desktop\\Python\\Web_GUI\\todos.txt"
 
 def get_todos(filepath=Filepath):
     """Read a text file and return the list 
