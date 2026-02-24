@@ -11,6 +11,7 @@ def add_todo():
 st.title("Todo App")
 st.subheader("Monetize your tasks.")
 st.write("This will help you organize and prioritize your tasks effectively.")
+st.write("Click the checkbox to remove a task from the list.")
 
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
